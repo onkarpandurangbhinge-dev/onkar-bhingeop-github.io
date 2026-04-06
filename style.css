@@ -1,0 +1,119 @@
+:root{
+  --bg:#0a0a0a;
+  --text:#fff;
+  --muted:#888;
+  --accent:#00ff88;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'JetBrains Mono', monospace;
+  background:var(--bg);
+  color:var(--text);
+  display:grid;
+  grid-template-columns:300px 1fr;
+}
+
+/* Sidebar */
+aside{
+  position:sticky;
+  top:0;
+  height:100vh;
+  padding:40px;
+  border-right:1px solid #222;
+}
+
+h1{
+  font-family:'Bebas Neue', sans-serif;
+  font-size:50px;
+}
+
+.subtitle{
+  color:var(--accent);
+}
+
+nav a{
+  display:block;
+  margin:10px 0;
+  color:var(--muted);
+  text-decoration:none;
+}
+
+nav a.active,
+nav a:hover{
+  color:var(--accent);
+}
+
+/* Main */
+main{
+  padding:60px;
+}
+
+section{
+  margin-bottom:80px;
+  opacity:0;
+  transform:translateY(30px);
+  transition:0.6s;
+}
+
+section.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+h2{
+  font-family:'Bebas Neue';
+  font-size:36px;
+  margin-bottom:20px;
+}
+
+/* Skills */
+.bar{
+  height:6px;
+  background:#222;
+}
+
+.bar-fill{
+  height:100%;
+  width:0;
+  background:var(--accent);
+  transition:1s;
+}
+
+/* Cursor */
+.cursor{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--accent);
+  position:fixed;
+  pointer-events:none;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  body{
+    grid-template-columns:1fr;
+  }
+  aside{
+    position:relative;
+    height:auto;
+    border:none;
+  }
+}
+
+/* Print */
+@media print{
+  body{
+    background:white;
+    color:black;
+  }
+  aside{
+    display:none;
+  }
+}
